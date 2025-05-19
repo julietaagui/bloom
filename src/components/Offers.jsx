@@ -1,15 +1,15 @@
-export default function Section() {
+export default function Offers() {
   return (
     <div
       className="custom-container mt-5  d-flex justify-content-between align-items-center mb-5"
       style={{ maxWidth: "100%", gap: "15px", flexWrap: "nowrap" }}
     >
-      <div className="card mb-3 border-radius" style={{ maxWidth: "900px", width: "600px" }}>
+      <div className="card card-sec mb-3 border-radius" style={{ maxWidth: "900px", width: "600px" }}>
         <div className="row g-0">
           <div className="col-md-6">
             <img
               src="/section.png"
-              className="img-fluid rounded-start border-radius"
+              className="img-fluid border-radius"
               alt="..."
             />
           </div>
@@ -28,12 +28,12 @@ export default function Section() {
         </div>
       </div>
 
-      <div className="card mb-3 border-radius" style={{ maxWidth: "900px", width: "600px" }}>
+      <div className="card card-sec mb-3 border-radius" style={{ maxWidth: "900px", width: "600px" }}>
         <div className="row g-0">
           <div className="col-md-6">
             <img
               src="/adidas.png"
-              className="img-fluid rounded-start border-radius"
+              className="img-fluid border-radius"
               alt="..."
             />
           </div>

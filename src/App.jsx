@@ -5,9 +5,9 @@ import Category from "./components/Category";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Product from "./components/Product";
-import Section from "./components/Section";
-import AboutMe from "./pages/AboutMe";
+import Offers from "./components/Offers";
 import ProductPage from "./pages/ProductPage";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
   return (
@@ -23,12 +23,12 @@ export default function App() {
               </div>
               <Category />
               <Product />
-              <Section />
+              <Offers />
             </>
           }
         />
-        <Route path="/about-me" element={<AboutMe />} />
         <Route path="/proyects" element={<ProductPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
       <Footer />
     </>

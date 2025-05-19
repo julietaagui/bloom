@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../App.css";
 
 export default function Nav() {
@@ -25,7 +26,7 @@ export default function Nav() {
               <a className="nav-link text-white" href="/proyects">Productos</a>
             </li>
             <li className="nav-item mx-2">
-              <a className="nav-link text-white" href="#">Sobre Nosotros</a>
+              <NavLink className="nav-link text-white" to="/about-us">Sobre Nosotros</NavLink>
             </li>
             <li className="nav-item m-">
               <a className="nav-link text-white" href="#"><i className="bi bi-cart "></i></a>

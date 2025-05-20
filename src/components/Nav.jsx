@@ -20,10 +20,10 @@ export default function Nav() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav ms-2 mb-2 mb-lg-0 fs-5">
             <li className="nav-item mx-2">
-              <a className="nav-link text-white" href="#">Inicio</a>
+              <NavLink className="nav-link text-white" to="/">Inicio</NavLink>
             </li>
             <li className="nav-item mx-2">
-              <a className="nav-link text-white" href="/proyects">Productos</a>
+              <NavLink className="nav-link text-white" to="/product">Productos</NavLink>
             </li>
             <li className="nav-item mx-2">
               <NavLink className="nav-link text-white" to="/about-us">Sobre Nosotros</NavLink>

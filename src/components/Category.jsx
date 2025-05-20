@@ -2,7 +2,7 @@ export default function Category() {
   const categories = [
     {
       title: "Vasos Térmicos",
-      img: "/vaso.png", // cambia la ruta a la tuya
+      img: "/vaso.png",
     },
     {
       title: "Termos",

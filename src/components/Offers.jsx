@@ -13,8 +13,8 @@ export default function Offers() {
               alt="..."
             />
           </div>
-          <div className="col-md-6">
-            <div className="card-body text-pri">
+          <div className="col-md-6 text-pri">
+            <div className="card-body">
               <h5 className="card-title">PUMA</h5>
               <p className="card-text">
                 Potenciá tu estilo con hasta 30% OFF en productos Puma. Rendí
@@ -37,7 +37,7 @@ export default function Offers() {
               alt="..."
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 text-pri">
             <div className="card-body text-pri">
               <h5 className="card-title">ADIDAS</h5>
               <p className="card-text">

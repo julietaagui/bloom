@@ -8,6 +8,7 @@ import Product from "./components/Product";
 import Offers from "./components/Offers";
 import ProductPage from "./pages/ProductPage";
 import AboutUs from "./pages/AboutUs";
+import OffersPage from "./pages/OffersPage";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/offers" element={<OffersPage />} />
       </Routes>
       <Footer />
     </>

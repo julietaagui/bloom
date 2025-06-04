@@ -33,7 +33,7 @@ export default function Product() {
                 <p className="text-pri fw-bold mb-3">${product.price}</p>
               </div>
               <div className="mt-auto d-grid container">
-                <button className="btn btn-pri w-100">Ver Producto</button>
+                <button className="btn btn-pri w-100">Agregar al carrito</button>
               </div>
             </div>
           </div>

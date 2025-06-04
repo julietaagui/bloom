@@ -23,7 +23,7 @@ export default function Nav() {
               <NavLink className="nav-link text-white" to="/">Inicio</NavLink>
             </li>
             <li className="nav-item mx-2">
-              <NavLink className="nav-link text-white" to="/product">Productos</NavLink>
+              <NavLink className="nav-link text-white" to="/product-page">Productos</NavLink>
             </li>
             <li className="nav-item mx-2">
               <NavLink className="nav-link text-white" to="/about-us">Sobre Nosotros</NavLink>

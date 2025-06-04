@@ -9,6 +9,7 @@ import Offers from "./components/Offers";
 import ProductPage from "./pages/ProductPage";
 import AboutUs from "./pages/AboutUs";
 import OffersPage from "./pages/OffersPage";
+import AboutProduct from "./components/AboutProduct";
 
 export default function App() {
   return (
@@ -28,9 +29,10 @@ export default function App() {
             </>
           }
         />
-        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product-page" element={<ProductPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/offers" element={<OffersPage />} />
+        <Route path="/about-product" element={<AboutProduct />} />
       </Routes>
       <Footer />
     </>

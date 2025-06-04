@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage";
 import AboutUs from "./pages/AboutUs";
 import OffersPage from "./pages/OffersPage";
 import AboutProduct from "./components/AboutProduct";
+import CartPage from "./pages/CartPage";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/offers" element={<OffersPage />} />
         <Route path="/about-product" element={<AboutProduct />} />
+        <Route path="/cart-page" element={<CartPage />} />
       </Routes>
       <Footer />
     </>

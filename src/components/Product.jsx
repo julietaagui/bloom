@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../hook/cartContext.jsx"; 
+import { NavLink } from "react-router-dom";
 
 export default function Product() {
   const [data, setData] = useState([]);
@@ -59,9 +60,9 @@ export default function Product() {
         ))}
       </div>
       <div>
-        <button className="btn btn-sec text-pri my-5">
+        <NavLink to="/product-page" className="btn btn-sec text-pri my-5">
           Ver Todos los Productos
-        </button>
+        </NavLink>
       </div>
     </div>
   );

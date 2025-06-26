@@ -1,16 +1,16 @@
 export default function Category() {
   const categories = [
     {
-      title: "Vasos Térmicos",
-      img: "/vaso.png",
+      title: "Remeras",
+      img: "/remera.png",
     },
     {
-      title: "Termos",
-      img: "/termo.png",
+      title: "Buzos",
+      img: "/buzo.png",
     },
     {
-      title: "Botellas Térmicas",
-      img: "/botella.png",
+      title: "Gorras",
+      img: "/gorra.png",
     },
   ];
 
@@ -25,7 +25,7 @@ export default function Category() {
                 <img
                   src={cat.img}
                   alt={cat.title}
-                  className="rounded-circle mb-2"
+                  className="rounded-circle mb-2 border"
                   style={{ width: "80px", height: "80px", objectFit: "cover" }}
                 />
                 <p className="text-pri fw-semibold">{cat.title}</p>

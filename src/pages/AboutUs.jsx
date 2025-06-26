@@ -48,7 +48,7 @@ export default function AboutUs() {
   return (
     <div className="mt-6 text-center mb-5">
       <div className="container">
-        <h1 className="my-5 text-pri" style={{ marginRight: "8rem" }}>
+        <h1 className="my-5 text-pri" style={{ marginRight: "5rem" }}>
           Sobre Nosotros
         </h1>
         <div className="text-center d-flex justify-content-center align-items-center">
@@ -87,7 +87,7 @@ export default function AboutUs() {
       </div>
 
       <section style={{ backgroundColor: "#F8E3E3" }} className="py-5 mt-5">
-        <h2 className="text-center text-pri mb-5">Tipos de Productos</h2>
+        <h2 className="text-center text-pri mb-5">¿Por que elegirnos?</h2>
         <div className="container">
           <div className="row justify-content-center">
             {items.map((item) => (

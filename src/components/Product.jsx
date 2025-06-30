@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../hook/cartContext.jsx"; 
+import { useCart } from "../hook/cartContext.jsx";
 import { NavLink } from "react-router-dom";
 
 export default function Product() {

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useCart } from "../hook/cartContext.jsx";
 
 export default function Product() {
   const [data, setData] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/products")
@@ -11,11 +13,10 @@ export default function Product() {
   }, []);
 
   return (
-    <div className="container text-center align-items-center">
+    <div className="container text-center align-items-center my-5">
       <div className="my-5">
         <h3 className="text-pri">Productos</h3>
       </div>
-
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {data.map((product) => (
           <div className="col" key={product.id}>
@@ -33,7 +34,19 @@ export default function Product() {
                 <p className="text-pri fw-bold mb-3">${product.price}</p>
               </div>
               <div className="mt-auto d-grid container">
-                <button className="btn btn-pri w-100">Agregar al carrito</button>
+                <button
+                  className="btn btn-pri w-100"
+                  onClick={() =>
+                    addToCart({
+                      id: product.id,
+                      title: product.title,
+                      price: product.price,
+                      image: product.images[0],
+                    })
+                  }
+                >
+                  Agregar al carrito
+                </button>
               </div>
             </div>
           </div>

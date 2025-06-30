@@ -26,7 +26,7 @@ export default function Category() {
                   src={cat.img}
                   alt={cat.title}
                   className="rounded-circle mb-2 border"
-                  style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                  style={{ width: "120px", height: "120px", objectFit: "cover" }}
                 />
                 <p className="text-pri fw-semibold">{cat.title}</p>
               </div>

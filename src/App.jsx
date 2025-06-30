@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useAuth } from "./hook/authContext";
 import "./App.css";
 import Banner from "./components/Banner";
 import Category from "./components/Category";
@@ -11,32 +12,65 @@ import AboutUs from "./pages/AboutUs";
 import OffersPage from "./pages/OffersPage";
 import AboutProduct from "./components/AboutProduct";
 import CartPage from "./pages/CartPage";
+import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Sale from "./pages/Sale";
 
 export default function App() {
   return (
-    <>
+    <div className="app-wrapper">
       <Nav />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div className="container my-5">
-                <Banner />
-              </div>
-              <Category />
-              <Product />
-              <Offers />
-            </>
-          }
-        />
-        <Route path="/product-page" element={<ProductPage />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/offers" element={<OffersPage />} />
-        <Route path="/about-product" element={<AboutProduct />} />
-        <Route path="/cart-page" element={<CartPage />} />
-      </Routes>
+      <div style={{ height: "70px" }}></div>
+      <div className="content">
+        <Routes>
+          {/* Públicas */}
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="container my-5">
+                  <Banner />
+                </div>
+                <Category />
+                <Product />
+                <Offers />
+              </>
+            }
+          />
+          <Route path="/product-page" element={<ProductPage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/about-product" element={<AboutProduct />} />
+          <Route path="/login" element={<LoginPage />} />
+
+          <Route
+            path="/sale"
+            element={
+              <ProtectedRoute>
+                <Sale />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/cart-page"
+            element={
+              <ProtectedRoute>
+                <CartPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/offers"
+            element={
+              <ProtectedRoute>
+                <OffersPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }

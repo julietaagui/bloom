@@ -123,10 +123,10 @@ export default function AboutUs() {
                     <p className="card-text">{skil.description}</p>
                     <a
                       href="#"
-                      className="btn btn-light rounded-pill mb-2"
+                      className="btn btn-sec rounded-pill mb-2"
                       style={{ border: "none" }}
                     >
-                      Visitar →
+                      Visitar
                     </a>
                   </div>
                 </div>

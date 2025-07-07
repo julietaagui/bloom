@@ -15,7 +15,6 @@ export default function OffersPage() {
 
   return (
     <>
-
       <div className="container text-center align-items-center mb-5">
         <div className="my-5">
           <h3 className="text-pri">Los mejores descuentos</h3>

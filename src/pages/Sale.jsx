@@ -78,29 +78,36 @@ export default function Sale() {
 
   return (
     <div className="mt-6 text-center mb-5 d-flex justify-content-center align-items-center">
-      <div className="container px-3 px-md-5">
+      <div className="container px-2 px-sm-3 px-md-5">
         <div className="my-5">
           <h3 className="text-pri">¡Hola! ¿Qué vas a vender? </h3>
         </div>
 
         <div className="row justify-content-center">
           {categories.map((cat) => (
-            <div className="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" key={cat.id}>
-              <div className="card social-card h-100">
-                <div className="card-body d-flex flex-column justify-content-center align-items-center text-center text-white m-2">
-                  <div className="icon-container mb-2">
-                    <i className={cat.icon} aria-label={`Ícono de ${cat.name}`}></i>
-                  </div>
-                  <h5 className="card-title mb-3">{cat.name}</h5>
-                  <button
-                    className="btn btn-sec rounded-pill"
-                    style={{ border: "none" }}
-                    onClick={() => handleVenderClick(cat)}
-                    aria-label={`Vender en categoría ${cat.name}`}
-                  >
-                    Vender
-                  </button>
+            <div
+              className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+              key={cat.id}
+            >
+              <div className="card social-card h-100 d-flex flex-column justify-content-center align-items-center text-center text-white p-3">
+                <div
+                  className="icon-container mb-3"
+                  style={{ fontSize: "2.5rem" }}
+                >
+                  <i
+                    className={cat.icon}
+                    aria-label={`Ícono de ${cat.name}`}
+                  ></i>
                 </div>
+                <h5 className="card-title mb-3">{cat.name}</h5>
+                <button
+                  className="btn btn-sec rounded-pill w-100"
+                  style={{ border: "none" }}
+                  onClick={() => handleVenderClick(cat)}
+                  aria-label={`Vender en categoría ${cat.name}`}
+                >
+                  Vender
+                </button>
               </div>
             </div>
           ))}
@@ -119,20 +126,29 @@ export default function Sale() {
               <p className="text-center">No tienes productos publicados aún.</p>
             ) : (
               products.map((product) => (
-                <div className="col-12 col-sm-6 col-lg-4 mb-4" key={product.id}>
+                <div
+                  className="col-12 col-sm-6 col-md-6 col-lg-4 mb-4"
+                  key={product.id}
+                >
                   <div className="card card-sec h-100 p-3 d-flex flex-column">
                     <img
-                      src={product.images?.[0] || "https://via.placeholder.com/150"}
+                      src={
+                        product.images?.[0] || "https://via.placeholder.com/150"
+                      }
                       alt={product.title}
-                      className="card-img-top mb-3"
-                      style={{ maxHeight: "200px", objectFit: "cover", borderRadius: "10px" }}
+                      className="card-img-top mb-3 w-100"
+                      style={{
+                        maxHeight: "200px",
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                      }}
                     />
                     <div className="card-body d-flex flex-column">
                       <h5 className="text-pri mb-2">{product.title}</h5>
                       <p className="text-pri fw-bold mb-3">${product.price}</p>
-                      <div className="mt-auto d-flex gap-2">
+                      <div className="mt-auto d-flex gap-2 flex-wrap">
                         <button
-                          className="btn btn-sec w-50"
+                          className="btn btn-sec w-100 w-sm-50"
                           onClick={() => {
                             setProductToDelete(product);
                             setShowDeleteModal(true);
@@ -142,7 +158,7 @@ export default function Sale() {
                           Eliminar
                         </button>
                         <button
-                          className="btn btn-pri w-50"
+                          className="btn btn-pri w-100 w-sm-50"
                           onClick={() => handleEditClick(product)}
                           aria-label={`Editar producto ${product.title}`}
                         >

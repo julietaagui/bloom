@@ -19,7 +19,7 @@ export default function Product() {
         <h3 className="text-pri">Productos</h3>
       </div>
 
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 container">
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {data.slice(0, 5).map((product) => (
           <div className="col" key={product.id}>
             <div className="card card-sec h-100 p-3 d-flex flex-column">
@@ -34,10 +34,10 @@ export default function Product() {
                   }}
                 />
               </div>
-              <div className="text-start container flex-grow-1 d-flex flex-column">
-                <a href="/about-product">
+              <div className="text-start flex-grow-1 d-flex flex-column px-2">
+                <NavLink to="/about-product" className="text-decoration-none">
                   <h6 className="text-pri mb-2">{product.title}</h6>
-                </a>
+                </NavLink>
                 <div className="mt-auto">
                   <p className="text-pri fw-bold mb-2">${product.price}</p>
                   <button
@@ -59,7 +59,7 @@ export default function Product() {
           </div>
         ))}
       </div>
-      <div>
+      <div className="text-center">
         <NavLink to="/product-page" className="btn btn-sec text-pri my-5">
           Ver Todos los Productos
         </NavLink>

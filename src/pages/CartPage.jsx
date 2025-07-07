@@ -32,72 +32,73 @@ export default function CartPage() {
   return (
     <div className="container my-5">
       <h4 className="mb-4 text-pri">Productos</h4>
-      <table className="table align-middle">
-        <thead>
-          <tr>
-            <th></th>
-            <th style={{ color: "#8f0502" }}>Producto</th>
-            <th style={{ color: "#8f0502" }}>Cantidad</th>
-            <th style={{ color: "#8f0502" }}>Precio</th>
-            <th style={{ color: "#8f0502" }}>Total</th>
-            <th style={{ color: "#8f0502" }}>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartItems.map((item) => (
-            <tr key={item.id}>
-              <td style={{ width: "60px" }}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="img-fluid rounded"
-                  style={{ width: "60px", height: "60px", objectFit: "cover" }}
-                />
-              </td>
-              <td style={{ color: "#8f0502" }}>{item.title}</td>
-              <td>
-                <div className="d-flex align-items-center gap-3 text-pri">
-                  <button
-                    onClick={() => decreaseQty(item.id)}
-                    className="btn btn-sm btn-sec-s"
-                  >
-                    -
-                  </button>
-                  {item.quantity}
-                  <button
-                    onClick={() => increaseQty(item.id)}
-                    className="btn btn-sm btn-sec-s"
-                  >
-                    +
-                  </button>
-                </div>
-              </td>
-              <td style={{ color: "#8f0502" }}>${item.price}</td>
-              <td style={{ color: "#8f0502" }}>
-                ${item.price * item.quantity}
-              </td>
-              <td>
-                <button
-                  className="btn btn-sm text-danger"
-                  onClick={() => {
-                    setProductToDelete(item);
-                    setShowDeleteModal(true);
-                  }}
-                >
-                  <FaTrashAlt />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
 
-      <div className="d-flex justify-content-between align-items-center border-top pt-3 mt-4">
-        <h5 style={{ color: "#8f0502" }}>Total</h5>
-        <h5 className="text-pri">${total}</h5>
+      <div className="table-responsive">
+        <table className="table align-middle">
+          <thead>
+            <tr>
+              <th></th>
+              <th className="text-pri">Producto</th>
+              <th className="text-pri">Cantidad</th>
+              <th className="text-pri">Precio</th>
+              <th className="text-pri">Total</th>
+              <th className="text-pri">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartItems.map((item) => (
+              <tr key={item.id}>
+                <td style={{ width: "60px" }}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="img-fluid rounded"
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      objectFit: "cover",
+                    }}
+                  />
+                </td>
+                <td className="text-pri">{item.title}</td>
+                <td>
+                  <div className="d-flex align-items-center gap-2 text-pri">
+                    <button
+                      onClick={() => decreaseQty(item.id)}
+                      className="btn btn-sm btn-sec-s"
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => increaseQty(item.id)}
+                      className="btn btn-sm btn-sec-s"
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td className="text-pri">${item.price}</td>
+                <td className="text-pri">${item.price * item.quantity}</td>
+                <td>
+                  <button
+                    className="btn btn-sm text-danger"
+                    onClick={() => {
+                      setProductToDelete(item);
+                      setShowDeleteModal(true);
+                    }}
+                  >
+                    <FaTrashAlt />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div className="text-end mt-3">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center border-top pt-3 mt-4 gap-3">
+        <h5 className="text-pri mb-0">Total: ${total}</h5>
         <button
           className="btn btn-pri px-5"
           onClick={() => setShowPaymentModal(true)}

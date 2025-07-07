@@ -18,14 +18,22 @@ export default function ModalPayment({
         <Modal.Title>Confirmar Pago</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>¿Estás seguro de que deseas proceder con el pago?</p>
-        <p>Total a pagar: ${totalAmount}</p>
+        <p className="mb-2">¿Estás seguro de que deseas proceder con el pago?</p>
+        <p className="fw-semibold">Total a pagar: ${totalAmount}</p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button className="btn-sec" style={{ width: "48%" }} variant="secondary" onClick={() => setShowModal(false)}>
+      <Modal.Footer className="d-flex flex-column flex-sm-row gap-2">
+        <Button
+          className="btn-sec w-100"
+          variant="secondary"
+          onClick={() => setShowModal(false)}
+        >
           Cancelar
         </Button>
-        <Button className="btn-pri" style={{ width: "48%" }} variant="primary" onClick={handlePayment}>
+        <Button
+          className="btn-pri w-100"
+          variant="primary"
+          onClick={handlePayment}
+        >
           Confirmar Pago
         </Button>
       </Modal.Footer>

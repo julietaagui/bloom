@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
-export default function ProductModal({ show, onClose, onSave, categoryName, productToEdit }) {
+export default function ProductModal({
+  show,
+  onClose,
+  onSave,
+  categoryName,
+  productToEdit,
+}) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
@@ -68,6 +74,7 @@ export default function ProductModal({ show, onClose, onSave, categoryName, prod
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
+              min="0"
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -79,10 +86,10 @@ export default function ProductModal({ show, onClose, onSave, categoryName, prod
               required={!image}
             />
             {image && (
-              <div className="mt-2 text-center">
+              <div className="mt-3 text-center">
                 <img
                   src={image}
-                  alt="preview"
+                  alt="Vista previa"
                   style={{
                     maxWidth: "100%",
                     maxHeight: "200px",
@@ -93,11 +100,19 @@ export default function ProductModal({ show, onClose, onSave, categoryName, prod
             )}
           </Form.Group>
         </Modal.Body>
-        <Modal.Footer className="justify-content-between">
-          <Button className="btn btn-sec border-radius" variant="secondary" onClick={onClose} style={{ width: "48%" }}>
+        <Modal.Footer className="d-flex flex-column flex-sm-row gap-2">
+          <Button
+            className="btn btn-sec w-100"
+            variant="secondary"
+            onClick={onClose}
+          >
             Cancelar
           </Button>
-          <Button className="btn btn-pri border-radius" type="submit" variant="primary" style={{ width: "48%" }}>
+          <Button
+            className="btn btn-pri w-100"
+            type="submit"
+            variant="primary"
+          >
             Aceptar
           </Button>
         </Modal.Footer>

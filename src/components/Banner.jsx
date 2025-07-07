@@ -1,8 +1,11 @@
 export default function Banner() {
-    return(
-        <div className="custom-container my-5 ">
-            <img className="card-img h-100" src="/card.png" alt="card img" />
-        </div>
-        
-    )
+  return (
+    <div className="container my-5">
+      <img
+        src="/card.png"
+        alt="Imagen del banner"
+        className="img-fluid w-100 rounded shadow"
+      />
+    </div>
+  );
 }

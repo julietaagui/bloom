@@ -23,7 +23,6 @@ export default function App() {
       <div style={{ height: "70px" }}></div>
       <div className="content">
         <Routes>
-          {/* Públicas */}
           <Route
             path="/"
             element={

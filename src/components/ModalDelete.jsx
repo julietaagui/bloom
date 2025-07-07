@@ -18,24 +18,22 @@ export default function ModalDelete({
         <Modal.Title>Eliminar producto</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
+        <p className="mb-2">
           ¿Estás seguro de que querés eliminar
           {productName ? ` "${productName}"` : " este producto"}?
         </p>
-        <p>Esta acción no se puede deshacer.</p>
+        <p className="text-danger small mb-0">Esta acción no se puede deshacer.</p>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="d-flex flex-column flex-sm-row gap-2">
         <Button
-          className="btn-sec"
-          style={{ width: "48%" }}
+          className="btn-sec w-100"
           variant="secondary"
           onClick={() => setShowModal(false)}
         >
           Cancelar
         </Button>
         <Button
-          className="btn-pri"
-          style={{ width: "48%" }}
+          className="btn-pri w-100"
           variant="danger"
           onClick={handleDelete}
         >

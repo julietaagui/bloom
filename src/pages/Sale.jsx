@@ -4,7 +4,7 @@ import ProductModal from "../components/ProductModal";
 import ModalDelete from "../components/ModalDelete";
 
 export default function Sale() {
-  const data = [
+  const categories = [
     { id: 1, name: "Ropa de Mujer", icon: "bi-bag-heart" },
     { id: 2, name: "Ropa de Hombre", icon: "bi-person-standing" },
     { id: 3, name: "Accesorios", icon: "bi-tags" },
@@ -28,6 +28,13 @@ export default function Sale() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!showModal) {
+      setSelectedCategory("");
+      setProductToEdit(null);
+    }
+  }, [showModal]);
 
   const handleDelete = async (id) => {
     try {
@@ -71,34 +78,32 @@ export default function Sale() {
 
   return (
     <div className="mt-6 text-center mb-5 d-flex justify-content-center align-items-center">
-      <div className="container px-5">
+      <div className="container px-3 px-md-5">
         <div className="my-5">
           <h3 className="text-pri">¡Hola! ¿Qué vas a vender? </h3>
         </div>
 
-        <div className="container">
-          <div className="row justify-content-center custom-container">
-            {data.map((skil) => (
-              <div className="col-6 col-md-6 col-lg-3 mb-4" key={skil.id}>
-                <div className="card social-card">
-                  <div className="card-body d-flex flex-column justify-content-center align-items-center text-center text-white m-2">
-                    <div className="icon-container">
-                      <i className={skil.icon} aria-label={`Ícono de ${skil.name}`}></i>
-                    </div>
-                    <h3 className="card-title m-2 mb-4">{skil.name}</h3>
-                    <a
-                      href="#"
-                      className="btn btn-sec rounded-pill mb-2"
-                      style={{ border: "none" }}
-                      onClick={() => handleVenderClick(skil)}
-                    >
-                      Vender
-                    </a>
+        <div className="row justify-content-center">
+          {categories.map((cat) => (
+            <div className="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" key={cat.id}>
+              <div className="card social-card h-100">
+                <div className="card-body d-flex flex-column justify-content-center align-items-center text-center text-white m-2">
+                  <div className="icon-container mb-2">
+                    <i className={cat.icon} aria-label={`Ícono de ${cat.name}`}></i>
                   </div>
+                  <h5 className="card-title mb-3">{cat.name}</h5>
+                  <button
+                    className="btn btn-sec rounded-pill"
+                    style={{ border: "none" }}
+                    onClick={() => handleVenderClick(cat)}
+                    aria-label={`Vender en categoría ${cat.name}`}
+                  >
+                    Vender
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         <hr className="my-5" />
@@ -114,37 +119,35 @@ export default function Sale() {
               <p className="text-center">No tienes productos publicados aún.</p>
             ) : (
               products.map((product) => (
-                <div className="col-12 col-md-6 col-lg-4 mb-4" key={product.id}>
-                  <div className="card card-sec h-100 p-3">
-                    <div className="position-relative mb-3">
-                      <img
-                        src={product.images?.[0] || "https://via.placeholder.com/150"}
-                        alt={product.title}
-                        className="card-img-top"
-                        style={{ maxHeight: "200px", objectFit: "cover" }}
-                      />
-                      <div className="card-body">
-                        <div className="text-start container">
-                          <h5 className="text-pri mb-1">{product.title}</h5>
-                          <p className="text-pri fw-bold mb-3">${product.price}</p>
-                        </div>
-                        <div className="mt-auto d-flex justify-content-between">
-                          <button
-                            className="btn btn-sec me-2 w-100"
-                            onClick={() => {
-                              setProductToDelete(product);
-                              setShowDeleteModal(true);
-                            }}
-                          >
-                            Eliminar
-                          </button>
-                          <button
-                            className="btn btn-pri w-100"
-                            onClick={() => handleEditClick(product)}
-                          >
-                            Editar
-                          </button>
-                        </div>
+                <div className="col-12 col-sm-6 col-lg-4 mb-4" key={product.id}>
+                  <div className="card card-sec h-100 p-3 d-flex flex-column">
+                    <img
+                      src={product.images?.[0] || "https://via.placeholder.com/150"}
+                      alt={product.title}
+                      className="card-img-top mb-3"
+                      style={{ maxHeight: "200px", objectFit: "cover", borderRadius: "10px" }}
+                    />
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="text-pri mb-2">{product.title}</h5>
+                      <p className="text-pri fw-bold mb-3">${product.price}</p>
+                      <div className="mt-auto d-flex gap-2">
+                        <button
+                          className="btn btn-sec w-50"
+                          onClick={() => {
+                            setProductToDelete(product);
+                            setShowDeleteModal(true);
+                          }}
+                          aria-label={`Eliminar producto ${product.title}`}
+                        >
+                          Eliminar
+                        </button>
+                        <button
+                          className="btn btn-pri w-50"
+                          onClick={() => handleEditClick(product)}
+                          aria-label={`Editar producto ${product.title}`}
+                        >
+                          Editar
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -14,28 +14,27 @@ export default function LoginPage() {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const validUser = "admin";
-  const validPassword = "1234";
+    const validUser = "admin";
+    const validPassword = "1234";
 
-  if (user === validUser && password === validPassword) {
-    login({ name: user });
-    navigate("/");
-  } else {
-    setError("Usuario o contraseña incorrectos.");
-    clearErrorAfterDelay();
-  }
-};
-
+    if (user === validUser && password === validPassword) {
+      login({ name: user });
+      navigate("/");
+    } else {
+      setError("Usuario o contraseña incorrectos.");
+      clearErrorAfterDelay();
+    }
+  };
 
   return (
     <div
-      className="d-flex justify-content-center align-items-center vh-100"
+      className="d-flex justify-content-center align-items-center vh-100 px-3"
       style={{ backgroundColor: "#f8f9fa" }}
     >
       <div
-        className="card card-sec p-5 shadow-sm w-100 mx-3"
+        className="card card-sec p-5 shadow-sm w-100"
         style={{ maxWidth: "520px" }}
       >
         <h2 className="text-center text-pri mb-4">Iniciar Sesión</h2>

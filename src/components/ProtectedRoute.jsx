@@ -4,9 +4,5 @@ import { useAuth } from "../hook/authContext";
 export default function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
 }

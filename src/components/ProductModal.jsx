@@ -100,21 +100,25 @@ export default function ProductModal({
             )}
           </Form.Group>
         </Modal.Body>
-        <Modal.Footer className="d-flex flex-column flex-sm-row gap-2">
-          <Button
-            className="btn btn-sec w-100"
-            variant="secondary"
-            onClick={onClose}
-          >
-            Cancelar
-          </Button>
-          <Button
-            className="btn btn-pri w-100"
-            type="submit"
-            variant="primary"
-          >
-            Aceptar
-          </Button>
+        <Modal.Footer className="d-flex w-100 gap-2">
+          <div style={{ flex: 1 }}>
+            <Button
+              className="btn btn-sec w-100"
+              variant="secondary"
+              onClick={onClose}
+            >
+              Cancelar
+            </Button>
+          </div>
+          <div style={{ flex: 1 }}>
+            <Button
+              className="btn btn-pri w-100"
+              type="submit"
+              variant="primary"
+            >
+              Aceptar
+            </Button>
+          </div>
         </Modal.Footer>
       </Form>
     </Modal>

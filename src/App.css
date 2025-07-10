@@ -129,3 +129,14 @@ input{
   border: 1px solid #8f0502 !important;
   border-radius: 12px !important;
 }
+.product-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+@media (max-width: 576px) {
+  .product-icon {
+    width: 70px;
+    height: 70px;
+  }
+}

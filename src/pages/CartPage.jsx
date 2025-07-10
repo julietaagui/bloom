@@ -5,11 +5,12 @@ import { useCart } from "../hook/cartContext.jsx";
 import { FaTrashAlt } from "react-icons/fa";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, increaseQty, decreaseQty } = useCart();
-
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const { cartItems, removeFromCart, increaseQty, decreaseQty, clearCart } =
+    useCart();
 
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -17,8 +18,10 @@ export default function CartPage() {
   );
 
   const handlePayment = () => {
-    console.log("Pago confirmado!");
+    setShowSuccessAlert(true);
     setShowPaymentModal(false);
+    clearCart();
+    setTimeout(() => setShowSuccessAlert(false), 3000);
   };
 
   const handleDelete = () => {
@@ -32,6 +35,12 @@ export default function CartPage() {
   return (
     <div className="container my-5">
       <h4 className="mb-4 text-pri">Productos</h4>
+
+      {showSuccessAlert && (
+        <div className="alert alert-success" role="alert">
+          ¡Pago realizado con éxito!
+        </div>
+      )}
 
       <div className="table-responsive">
         <table className="table align-middle">

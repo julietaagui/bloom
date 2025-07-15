@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet";
+
 export default function AboutUs() {
   const items = [
     { id: 1, name: "Calidad que se siente", icon: "bi-bag" },
@@ -32,6 +34,14 @@ export default function AboutUs() {
 
   return (
     <div className="mt-5 text-center mb-5">
+      <Helmet>
+        <title>Sobre Nosotros | Bloom</title>
+        <meta
+          name="description"
+          content="Conoce más sobre Bloom: nuestra misión, valores y por qué somos tu mejor opción para compras en línea."
+        />
+      </Helmet>
+
       <div className="container">
         <h1 className="my-5 text-pri">Sobre Nosotros</h1>
         <div className="row g-5">

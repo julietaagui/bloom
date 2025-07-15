@@ -103,7 +103,7 @@ export default function ProductModal({
         <Modal.Footer className="d-flex w-100 gap-2">
           <div style={{ flex: 1 }}>
             <Button
-              className="btn btn-sec w-100"
+              className="btn-sec w-100"
               variant="secondary"
               onClick={onClose}
             >
@@ -112,7 +112,7 @@ export default function ProductModal({
           </div>
           <div style={{ flex: 1 }}>
             <Button
-              className="btn btn-pri w-100"
+              className="btn-pri w-100"
               type="submit"
               variant="primary"
             >

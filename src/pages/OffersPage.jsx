@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../hook/cartContext.jsx";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function OffersPage() {
   const [data, setData] = useState([]);
@@ -16,6 +17,14 @@ export default function OffersPage() {
   return (
     <>
       <div className="container text-center align-items-center mb-5">
+        <Helmet>
+          <title>Descuentos | Bloom</title>
+          <meta
+            name="description"
+            content="Accede a los mejores descuentos en Bloom."
+          />
+        </Helmet>
+
         <div className="my-5">
           <h3 className="text-pri">Los mejores descuentos</h3>
         </div>

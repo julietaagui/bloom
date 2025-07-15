@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getProducts, deleteProduct } from "../Api/productsApi";
+import { getProducts, deleteProduct, createProduct } from "../Api/productsApi";
 import ProductModal from "../components/ProductModal";
 import ModalDelete from "../components/ModalDelete";
+import { Helmet } from "react-helmet";
 
 export default function Sale() {
   const categories = [
@@ -25,7 +26,10 @@ export default function Sale() {
   useEffect(() => {
     getProducts()
       .then(setProducts)
-      .catch((err) => setError(err.message))
+      .catch((err) => {
+        console.error(err);
+        setError("Error al cargar productos");
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -53,16 +57,24 @@ export default function Sale() {
     setProductToDelete(null);
   };
 
-  const handleSaveProduct = (product) => {
-    if (product.id) {
-      setProducts((prev) =>
-        prev.map((p) => (p.id === product.id ? product : p))
-      );
-    } else {
-      const newProduct = { ...product, id: Date.now() };
-      setProducts((prev) => [...prev, newProduct]);
+  const handleSaveProduct = async (product) => {
+    try {
+      if (product.id) {
+        setProducts((prev) =>
+          prev.map((p) => (p.id === product.id ? product : p))
+        );
+      } else {
+        const newProduct = await createProduct({
+          ...product,
+          category: selectedCategory,
+        });
+        setProducts((prev) => [...prev, newProduct]);
+      }
+      setShowModal(false);
+    } catch (err) {
+      console.error(err);
+      setError("Error al guardar el producto");
     }
-    setShowModal(false);
   };
 
   const handleVenderClick = (category) => {
@@ -73,14 +85,23 @@ export default function Sale() {
 
   const handleEditClick = (product) => {
     setProductToEdit(product);
+    setSelectedCategory(product.category || "");
     setShowModal(true);
   };
 
   return (
     <div className="mt-6 text-center mb-5 d-flex justify-content-center align-items-center">
+      <Helmet>
+        <title>Vender Productos | Bloom</title>
+        <meta
+          name="description"
+          content="Publicá y gestioná tus productos para vender en Bloom. Fácil y rápido."
+        />
+      </Helmet>
+
       <div className="container px-2 px-sm-3 px-md-5">
         <div className="my-5">
-          <h3 className="text-pri">¡Hola! ¿Qué vas a vender? </h3>
+          <h3 className="text-pri">¡Hola! ¿Qué vas a vender?</h3>
         </div>
 
         <div className="row justify-content-center">
@@ -146,24 +167,28 @@ export default function Sale() {
                     <div className="card-body d-flex flex-column">
                       <h5 className="text-pri mb-2">{product.title}</h5>
                       <p className="text-pri fw-bold mb-3">${product.price}</p>
-                      <div className="mt-auto d-flex gap-2 flex-wrap">
-                        <button
-                          className="btn btn-sec w-100 w-sm-50"
-                          onClick={() => {
-                            setProductToDelete(product);
-                            setShowDeleteModal(true);
-                          }}
-                          aria-label={`Eliminar producto ${product.title}`}
-                        >
-                          Eliminar
-                        </button>
-                        <button
-                          className="btn btn-pri w-100 w-sm-50"
-                          onClick={() => handleEditClick(product)}
-                          aria-label={`Editar producto ${product.title}`}
-                        >
-                          Editar
-                        </button>
+                      <div className="d-flex w-100 gap-2">
+                        <div style={{ flex: 1 }}>
+                          <button
+                            className="btn btn-sec w-100 w-sm-50"
+                            onClick={() => {
+                              setProductToDelete(product);
+                              setShowDeleteModal(true);
+                            }}
+                            aria-label={`Eliminar producto ${product.title}`}
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <button
+                            className="btn btn-pri w-100 w-sm-50"
+                            onClick={() => handleEditClick(product)}
+                            aria-label={`Editar producto ${product.title}`}
+                          >
+                            Editar
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -185,7 +210,7 @@ export default function Sale() {
           showModal={showDeleteModal}
           setShowModal={setShowDeleteModal}
           handleDelete={confirmDelete}
-          productName={productToDelete?.title}
+          productName={productToDelete?.title || ""}
         />
       </div>
     </div>

@@ -3,6 +3,7 @@ import ModalPayment from "../components/ModalPayment.jsx";
 import ModalDelete from "../components/ModalDelete.jsx";
 import { useCart } from "../hook/cartContext.jsx";
 import { FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 export default function CartPage() {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -34,6 +35,15 @@ export default function CartPage() {
 
   return (
     <div className="container my-5">
+
+      <Helmet>
+        <title>Tu Carrito | Bloom</title>
+        <meta
+          name="description"
+          content="Revisa y gestiona los productos en tu carrito antes de finalizar tu compra en Bloom."
+        />
+      </Helmet>
+
       <h4 className="mb-4 text-pri">Productos</h4>
 
       {showSuccessAlert && (

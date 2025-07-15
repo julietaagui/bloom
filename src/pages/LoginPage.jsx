@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../hook/authContext.jsx";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function LoginPage() {
   const [user, setUser] = useState("");
@@ -37,6 +38,14 @@ export default function LoginPage() {
         className="card card-sec p-5 shadow-sm w-100"
         style={{ maxWidth: "520px" }}
       >
+        <Helmet>
+          <title>Iniciar Sesión | Bloom</title>
+          <meta
+            name="description"
+            content="Accede a tu cuenta en Bloom para vender, comprar y gestionar tus productos."
+          />
+        </Helmet>
+
         <h2 className="text-center text-pri mb-4">Iniciar Sesión</h2>
 
         <form className="text-pri" onSubmit={handleSubmit}>

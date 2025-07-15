@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../hook/cartContext.jsx";
+import { Helmet } from "react-helmet";
 
 export default function Product() {
   const [data, setData] = useState([]);
@@ -14,6 +15,15 @@ export default function Product() {
 
   return (
     <div className="container text-center align-items-center my-5">
+
+      <Helmet>
+        <title>Productos | Bloom</title>
+        <meta
+          name="description"
+          content="Los mejores productos."
+        />
+      </Helmet>
+
       <div className="my-5">
         <h3 className="text-pri">Productos</h3>
       </div>

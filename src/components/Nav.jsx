@@ -18,7 +18,8 @@ export default function Nav() {
 
         <button
           className="navbar-toggler burger"
-          type="button"
+          style={{ color: "#ffffff"}}
+          type="button"px
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
@@ -88,7 +89,8 @@ export default function Nav() {
                 </button>
               ) : (
                 <button
-                  className="btn btn-sm btn-sec-s"
+                  className="btn btn-m btn-sec-s"
+                  style={{ fontSize: "18px"}}
                   onClick={() => navigate("/login")}
                 >
                   Iniciar sesión

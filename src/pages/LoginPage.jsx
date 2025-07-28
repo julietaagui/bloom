@@ -31,9 +31,7 @@ export default function LoginPage() {
 
   return (
     <div
-      className="d-flex justify-content-center align-items-center vh-100 px-3"
-      style={{ backgroundColor: "#f8f9fa" }}
-    >
+      className="d-flex justify-content-center align-items-center vh-100 px-3"    >
       <div
         className="card card-sec p-5 shadow-sm w-100"
         style={{ maxWidth: "520px" }}
@@ -79,7 +77,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <button type="submit" className="btn btn-pri w-100">
+          <button type="submit" className="btn btn-pri w-100" style={{borderRadius: "16px"}}>
             Iniciar sesión
           </button>
         </form>

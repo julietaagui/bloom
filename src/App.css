@@ -105,6 +105,10 @@ html, body {
 .burger {
   background-color: #ffffff !important;
 }
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
 .mx-nav {
   margin: 0.1rem;
 }
@@ -138,5 +142,27 @@ input{
   .product-icon {
     width: 70px;
     height: 70px;
+  }
+}
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .navbar-nav .btn {
+    width: 100%;
+    text-align: left;
+    margin-top: 0.5rem;
   }
 }

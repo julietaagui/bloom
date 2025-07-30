@@ -35,7 +35,6 @@ export default function CartPage() {
 
   return (
     <div className="container my-5">
-
       <Helmet>
         <title>Tu Carrito | Bloom</title>
         <meta
@@ -60,7 +59,6 @@ export default function CartPage() {
               <th className="text-pri">Producto</th>
               <th className="text-pri">Cantidad</th>
               <th className="text-pri">Precio</th>
-              <th className="text-pri">Total</th>
               <th className="text-pri">Eliminar</th>
             </tr>
           </thead>
@@ -98,7 +96,6 @@ export default function CartPage() {
                   </div>
                 </td>
                 <td className="text-pri">${item.price}</td>
-                <td className="text-pri">${item.price * item.quantity}</td>
                 <td>
                   <button
                     className="btn btn-sm text-danger"
@@ -117,7 +114,7 @@ export default function CartPage() {
       </div>
 
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center border-top pt-3 mt-4 gap-3">
-        <h5 className="text-pri mb-0">Total: ${total}</h5>
+        <h4 className="text-pri mb-0">Total: ${total}</h4>
         <button
           className="btn btn-pri px-5"
           onClick={() => setShowPaymentModal(true)}

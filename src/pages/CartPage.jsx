@@ -43,8 +43,6 @@ export default function CartPage() {
         />
       </Helmet>
 
-      <h4 className="mb-4 text-pri">Productos</h4>
-
       {showSuccessAlert && (
         <div className="alert alert-success" role="alert">
           ¡Pago realizado con éxito!
@@ -55,11 +53,11 @@ export default function CartPage() {
         <table className="table align-middle">
           <thead>
             <tr>
+              <th className="text-pri"><h4 className="mb-4 text-pri">Productos</h4></th>
               <th></th>
-              <th className="text-pri">Producto</th>
-              <th className="text-pri">Cantidad</th>
-              <th className="text-pri">Precio</th>
-              <th className="text-pri">Eliminar</th>
+              <th style={{color: "#8f0502"}}>Cantidad</th>
+              <th style={{color: "#8f0502"}}>Precio</th>
+              <th style={{color: "#8f0502"}}>Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +75,7 @@ export default function CartPage() {
                     }}
                   />
                 </td>
-                <td className="text-pri">{item.title}</td>
+                <td style={{color: "#8f0502"}}>{item.title}</td>
                 <td>
                   <div className="d-flex align-items-center gap-2 text-pri">
                     <button

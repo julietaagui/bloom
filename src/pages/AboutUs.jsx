@@ -47,28 +47,21 @@ export default function AboutUs() {
         <div className="row g-5">
           <div className="col-12 col-md-4 d-flex align-items-stretch">
             <img
-              src="/About-Bloom.png"
-              className="img-fluid w-100 rounded"
+              src="/sobre nosotros.png"
+              className="img-fluid w-90 rounded"
               alt="Sobre Nosotros"
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className="col-12 col-md-8 d-flex align-items-center">
-            <div className="text-md-start p-3">
+            <div className="text-md-start p-3 text-pri">
               <h5 style={{ lineHeight: "1.6" }}>
-                En Bloom, creemos que comprar en línea debe ser fácil, seguro y
-                satisfactorio. Desde nuestros inicios, nos propusimos ofrecer
-                productos de calidad, precios competitivos y un servicio al
-                cliente que realmente escuche y responda. Nos especializamos en
-                [tipo de productos que vendes, por ejemplo: tecnología, moda,
-                artículos para el hogar], seleccionando cuidadosamente cada
-                artículo para asegurarnos de que cumpla con los estándares que
-                nuestros clientes merecen. Nuestro equipo está conformado por
-                personas apasionadas por la innovación, el diseño y la
-                experiencia de usuario. Trabajamos cada día para mejorar tu
-                experiencia de compra y brindarte la confianza de que estás
-                eligiendo lo mejor. Gracias por ser parte de nuestra comunidad.
-                ¡Tu satisfacción es nuestra prioridad!
+                Bloom es un ecommerce especializado en la venta de ropa diseñada para acompañar el estilo y 
+                comodidad del día a día de nuestros clientes. Ofrecemos prendas de alta calidad, funcionales,
+                duraderas y confeccionadas con materiales sostenibles, ideales para cualquier ocasión y temporada.
+                 La tienda online presenta un diseño moderno y atractivo con una interfaz intuitiva, que permite a
+                  nuestros clientes explorar fácilmente la colección, conocer detalles de cada prenda y realizar
+                   sus compras de manera rápida y segura.
               </h5>
             </div>
           </div>
@@ -93,7 +86,7 @@ export default function AboutUs() {
       </section>
 
       <div className="container my-5">
-        <h3 className="text-pri mb-4">Mis Redes Sociales</h3>
+        <h3 className="text-pri mb-4">Nuestras Redes Sociales</h3>
         <div className="row justify-content-center">
           {data.map((social) => (
             <div className="col-12 col-md-6 col-lg-4 mb-4" key={social.id}>
